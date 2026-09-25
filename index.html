@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Objevte kouzlo Děčína, majestátní zámek, Pastýřskou stěnu, Labský kaňon a přírodu České Svýcarska. Průvodce a interaktivní plánovač.">
+    <title>Děčín – Brána do Českého Švýcarska</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- HLAVIČKA A NAVIGACE -->
+    <header>
+        <div class="logo">Děčín<span>Guide</span></div>
+        <nav>
+            <ul>
+                <li><a href="#o-miste">O městě</a></li>
+                <li><a href="#atrakce">Památky</a></li>
+                <li><a href="#planovac">Plánovač</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- HLAVNÍ OBSAH -->
+    <main>
+        
+        <!-- HERO SEKCE -->
+        <section class="hero">
+            <h1>Vítejte v Děčíně</h1>
+            <p>Město na soutoku Labe a Ploučnice, obklopené pískovcovými skálami a nádhernou přírodou.</p>
+            <a href="#atrakce" class="btn">Prozkoumat památky</a>
+        </section>
+
+        <!-- O MÍSTĚ -->
+        <section id="o-miste" class="container">
+            <h2>O městě pod pískovcovými skálami</h2>
+            <div class="grid-2">
+                <article>
+                    <h3>Historie se setkává s divokou přírodou</h3>
+                    <p>Děčín leží v severních Čechách v malebném kaňonu Labe a je ideálním výchozím bodem do národního parku České Švýcarsko. Město má bohatou historii spojenou s plavbou po Labe, šlechtickým rodem Thunů a jedinečnou atmosférou podsvícených skal.</p>
+                    <p>Najdeš tu skvělé zázemí pro turistiku, cyklistiku, ale i moderní kavárny a kulturní vyžití.</p>
+                </article>
+                <aside>
+                    <h3>Rychlá fakta</h3>
+                    <ul>
+                        <li><strong>Kraj:</strong> <span>Ústecký kraj</span></li>
+                        <li><strong>Hlavní symbol:</strong> <span>Děčínský zámek a Růžová zahrada</span></li>
+                        <li><strong>Přírodní raritka:</strong> <span>Nejníže položený bod ČR (Labe)</span></li>
+                    </ul>
+                </aside>
+            </div>
+        </section>
+
+        <!-- PAMÁTKY (INTERAKTIVNÍ ZÁLOŽKY) -->
+        <section id="atrakce" class="container bg-light">
+            <h2>Hlavní památky a místa</h2>
+            <p>Kliknutím na záložku si zobrazíte detailní informace o jednotlivých místech.</p>
+            
+            <!-- Ovládací tlačítka pro JS -->
+            <div class="tab-buttons">
+                <button class="tab-btn active" onclick="prepnoutZalozku('zamek', this)">Zámek Děčín</button>
+                <button class="tab-btn" onclick="prepnoutZalozku('pastyrska', this)">Pastýřská stěna</button>
+                <button class="tab-btn" onclick="prepnoutZalozku('cnp', this)">Labský kaňon</button>
+            </div>
+
+            <!-- Obsah záložek -->
+            <div class="tab-content-container">
+                <div id="zamek" class="tab-content active">
+                    <img src="https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=800&q=80" alt="Zámek Děčín">
+                    <div>
+                        <h3>Zámek Děčín</h3>
+                        <p>Barokně-klasicistní zámek tyčící se na skále nad soutokem Labe a Ploučnice. Proslulý je svou unikátní Růžovou zahradou, dlouhou Dlouhou jízdou ohraničenou mohutnými zdmi a historií spojenou s rodem Thun-Hohenstein.</p>
+                    </div>
+                </div>
+
+                <div id="pastyrska" class="tab-content">
+                    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80" alt="Příroda v okolí Děčína">
+                    <div>
+                        <h3>Pastýřská stěna</h3>
+                        <p>Impozantní pískovcová skála tyčící se přímo naproti zámku na levém břehu Labe. Na jejím vrcholu stojí stylová výletní restaurace a vyhlídka, odkud je nádherný panoramatický výhled na celé město a labské údolí.</p>
+                    </div>
+                </div>
+
+                <div id="cnp" class="tab-content">
+                    <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=800&q=80" alt="Labský kaňon v Děčíně">
+                    <div>
+                        <h3>Labský kaňon</h3>
+                        <p>Nejhlubší pískovcový kaňon v Evropě, který se rozprostírá od Děčína směrem k německým hranicím. Nabízí dechberoucí scenérie, turistické trasy podél řeky a slavné ferratové lezení přímo na Pastýřské stěně.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- INTERAKTIVNÍ PLÁNOVAČ / KALKULAČKA -->
+        <section id="planovac" class="container">
+            <h2>Interaktivní plánovač rozpočtu</h2>
+            <p>Spočítejte si přibližný denní rozpočet na výlet nebo pobyt v Děčíně podle zvoleného stylu.</p>
+            
+            <form id="trip-form" onsubmit="return false;">
+                <div class="form-group">
+                    <label for="style">Styl ubytování a stravování:</label>
+                    <select id="style">
+                        <option value="25">Ekonomický (Turistická ubytovna & občerstvení) - cca 25 €/den</option>
+                        <option value="60" selected>Standardní (Penzion & místní restaurace) - cca 60 €/den</option>
+                        <option value="130">Luxusní (Hotely & zážitková gastronomie) - cca 130 €/den</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="days">Počet dní pobytu:</label>
+                    <input type="number" id="days" value="3" min="1" max="30">
+                </div>
+
+                <button type="button" id="calculate-btn" class="btn" onclick="spocitatRozpocet()">Spočítat odhad</button>
+            </form>
+
+            <div id="result-box" class="result-box">
+                <p>Vyberte parametry a klikněte na tlačítko pro zobrazení odhadovaného rozpočtu.</p>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- PÁTKA STRÁNKY -->
+    <footer>
+        <p>&copy; 2026 DěčínGuide. Vytvořeno pro školní projekt.</p>
+    </footer>
+
+    <!-- VESTAVĚNÝ JAVASCRIPT, ABY TO FUNGOVALO NA 100% -->
+    <script>
+        function prepnoutZalozku(targetId, clickedBtn) {
+            // Skryje všechny záložky a odebere aktivní třídu tlačítkům
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+
+            // Zobrazí vybranou záložku a rozsvítí kliknuté tlačítko
+            document.getElementById(targetId).classList.add('active');
+            clickedBtn.classList.add('active');
+        }
+
+        function spocitatRozpocet() {
+            const dailyRate = parseInt(document.getElementById('style').value);
+            const days = parseInt(document.getElementById('days').value);
+            const resultBox = document.getElementById('result-box');
+
+            if (isNaN(days) || days <= 0) {
+                resultBox.innerHTML = `<p style="color: #ef4444;">Zadejte platný počet dní (alespoň 1).</p>`;
+                return;
+            }
+
+            const totalCost = dailyRate * days;
+            resultBox.innerHTML = `<p>Odhadovaný celkový rozpočet na <strong>${days}</strong> dny/dní činí přibližně <strong>${totalCost} €</strong>.</p>`;
+        }
+    </script>
+</body>
+</html>
